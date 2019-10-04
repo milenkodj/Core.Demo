@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  core.api:
+    image: ${DOCKER_REGISTRY-}coreapi
+    build:
+      context: .
+      dockerfile: Core.Api/Dockerfile
+
+  core.web:
+    image: ${DOCKER_REGISTRY-}coreweb
+    build:
+      context: .
+      dockerfile: Core.Web/Dockerfile
+

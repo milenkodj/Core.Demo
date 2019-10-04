@@ -1,0 +1,20 @@
+﻿@page
+@model Core.Web.Pages.WeatherForecastModel
+@{
+    ViewData["Title"] = "Weather Forecast";
+}
+
+<h3>WeatherForecast</h3>
+
+<div class="container">
+    <table class="table table-striped">
+        @foreach (var vf in Model.WeatherForecasts)
+        {
+            <tr>
+                <td>@vf.Date</td>
+                <td>@vf.TemperatureF F</td>
+                <td>@vf.Summary</td>
+            </tr>
+        }
+    </table>
+</div>

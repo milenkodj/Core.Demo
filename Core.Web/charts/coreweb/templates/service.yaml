@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "coreweb.fullname" . }}
+  labels:
+    app: {{ template "coreweb.name" . }}
+    chart: {{ template "coreweb.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "coreweb.name" . }}
+    release: {{ .Release.Name }}
